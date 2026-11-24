@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omar Khaled Mahmoud — Systems, Data &amp; Industrial Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* hallmark: v2.0.0 | theme: custom-copilot-fintech | genre: modern-minimal | signature: live-engineering-telemetry-bento */
+    /* critique: Clean fintech/AI-copilot light architectural canvas paired with a high-contrast dark analytics stage showcasing real verified metrics. */
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef2f6;
+      --ink: #0b1220;
+      --ink-muted: #4b586c;
+      --ink-subtle: #667489;
+      --border: rgba(11, 18, 32, 0.09);
+      --border-strong: rgba(11, 18, 32, 0.16);
+      --accent: #0f766e;
+      --accent-hover: #0b5d57;
+      --accent-soft: #e6f6f4;
+      --stage-bg: #0c1320;
+      --stage-panel: #141d2e;
+      --stage-border: rgba(255, 255, 255, 0.1);
+      --stage-ink: #f2f6fb;
+      --stage-muted: #9aa7bc;
+      --stage-signal: #34d399;
+      --stage-signal-soft: rgba(52, 211, 153, 0.14);
+      --stage-amber: #e2b46a;
+      --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px rgba(11, 18, 32, 0.04);
+      --shadow-stage: 0 24px 60px rgba(11, 18, 32, 0.22);
+      --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", Consolas, monospace;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --print-bg: #ffffff;
+      --print-ink: #111111;
+      --print-border: #d4dae3;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand:hover {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--stage-bg);
+      color: var(--stage-signal);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--ink-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.16s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--stage-bg);
+      color: var(--stage-ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--stage-panel);
+      color: var(--stage-ink);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-hover);
+      color: var(--surface);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-soft);
+      color: var(--ink);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Hero Stage — fits cleanly in 1280x800 */
+    .hero {
+      padding: 48px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 18px;
+      overflow-wrap: break-word;
+      min-width: 0;
+    }
+
+    .hero-lead {
+      font-size: 1.04rem;
+      color: var(--ink-muted);
+      max-width: 52ch;
+      margin-bottom: 26px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .hero-contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    .hero-contact-strip a {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Copilot Analytics Bento Stage */
+    .copilot-stage {
+      background: var(--stage-bg);
+      color: var(--stage-ink);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--stage-border);
+      box-shadow: var(--shadow-stage);
+      min-width: 0;
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--stage-border);
+      margin-bottom: 18px;
+    }
+
+    .stage-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--stage-ink);
+    }
+
+    .stage-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--stage-signal-soft);
+      color: var(--stage-signal);
+    }
+
+    .stage-chart-wrap {
+      background: var(--stage-panel);
+      border-radius: var(--radius-md);
+      padding: 16px 16px 12px;
+      margin-bottom: 16px;
+    }
+
+    .stage-chart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .stage-chart-label {
+      font-size: 0.82rem;
+      color: var(--stage-muted);
+    }
+
+    .stage-chart-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--stage-signal);
+    }
+
+    .stage-svg {
+      display: block;
+      width: 100%;
+      height: 112px;
+    }
+
+    .stage-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric-cell {
+      background: var(--stage-panel);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .metric-num {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--stage-ink);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .metric-num.signal {
+      color: var(--stage-signal);
+    }
+
+    .metric-num.amber {
+      color: var(--stage-amber);
+    }
+
+    .metric-desc {
+      font-size: 0.8rem;
+      color: var(--stage-muted);
+      line-height: 1.4;
+    }
+
+    /* Sections */
+    .section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.3vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      overflow-wrap: break-word;
+      min-width: 0;
+    }
+
+    .section-head p {
+      color: var(--ink-muted);
+      font-size: 0.94rem;
+      max-width: 56ch;
+    }
+
+    /* Flagship HESN Showcase */
+    .flagship-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      min-width: 0;
+    }
+
+    .panel-dark {
+      background: var(--stage-bg);
+      color: var(--stage-ink);
+      border-color: var(--stage-border);
+    }
+
+    .panel h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+
+    .panel-meta {
+      font-size: 0.88rem;
+      color: var(--ink-subtle);
+      margin-bottom: 16px;
+    }
+
+    .panel-dark .panel-meta {
+      color: var(--stage-muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 20px minmax(0, 1fr);
+      gap: 10px;
+      font-size: 0.93rem;
+      color: var(--ink-muted);
+    }
+
+    .feature-list li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    .feature-list strong {
+      color: var(--ink);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--surface-soft);
+      color: var(--ink);
+    }
+
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 18px 0 24px;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--stage-border);
+      font-size: 0.88rem;
+    }
+
+    .spec-row span:first-child {
+      color: var(--stage-muted);
+    }
+
+    .spec-row span:last-child {
+      font-family: var(--font-mono);
+      color: var(--stage-ink);
+      text-align: right;
+    }
+
+    /* Projects & Skills Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .exp-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .exp-left {
+      min-width: 0;
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .exp-org {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .exp-loc {
+      font-size: 0.84rem;
+      color: var(--ink-subtle);
+    }
+
+    .exp-right h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .exp-right ul {
+      padding-left: 18px;
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-right strong {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0 48px;
+      color: var(--ink-subtle);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .flagship-grid,
+      .grid-2,
+      .grid-3,
+      .exp-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn,
+      .nav-links a {
+        transition: none;
+      }
+      .btn:hover {
+        transform: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: var(--print-bg);
+        color: var(--print-ink);
+      }
+      .site-nav,
+      .hero-cta,
+      .no-print {
+        display: none !important;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      .hero,
+      .section {
+        padding: 14px 0;
+        border-color: var(--print-border);
+      }
+      .panel,
+      .panel-dark,
+      .copilot-stage,
+      .exp-row,
+      .metric-cell,
+      .stage-chart-wrap {
+        background: var(--print-bg) !important;
+        color: var(--print-ink) !important;
+        border: 1px solid var(--print-border) !important;
+        box-shadow: none !important;
+        padding: 12px !important;
+      }
+      .hero-lead,
+      .panel-meta,
+      .feature-list li,
+      .exp-right ul,
+      .metric-desc,
+      .stage-chart-label,
+      .spec-row span {
+        color: var(--print-ink) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">OK</span>
+        <span>Omar Khaled Mahmoud</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#hesn">HESN</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#credentials">Skills &amp; Credentials</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" type="button" onclick="window.print()">Print CV</button>
+        <a class="btn btn-primary" href="https://omarkhalidmahmmoud.github.io/HESN-Releases/" target="_blank" rel="noopener">Get HESN v2.2.1</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Systems engineering for live industrial &amp; workshop operations</h1>
+          <p class="hero-lead">
+            Omar Khaled Mahmoud — Digital Transformation &amp; Systems Specialist bridging Python/FastAPI desktop software,
+            computer vision, and Siemens industrial automation from Cairo, Egypt.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-accent" href="https://omarkhalidmahmmoud.github.io/HESN-Releases/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              <span>Download HESN v2.2.1</span>
+            </a>
+            <button class="btn btn-secondary" type="button" onclick="window.print()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>Save CV as PDF</span>
+            </button>
+          </div>
+          <div class="hero-contact-strip">
+            <a href="mailto:omarkhalidmahmmoud@gmail.com">omarkhalidmahmmoud@gmail.com</a>
+            <a href="tel:01144426778">01144426778</a>
+            <a href="https://linkedin.com/in/omar-khalid-mahmmoud" target="_blank" rel="noopener">linkedin.com/in/omar-khalid-mahmmoud</a>
+            <a href="https://github.com/omarkhalidmahmmoud" target="_blank" rel="noopener">github.com/omarkhalidmahmmoud</a>
+          </div>
+        </div>
+
+        <aside class="copilot-stage" aria-label="Verified engineering benchmarks">
+          <div class="stage-header">
+            <span class="stage-title">Verified Engineering Telemetry</span>
+            <span class="stage-badge">HESN v2.2.1</span>
+          </div>
+
+          <div class="stage-chart-wrap">
+            <div class="stage-chart-head">
+              <span class="stage-chart-label">HESN automated test suite coverage progression</span>
+              <span class="stage-chart-val">139 / 139</span>
+            </div>
+            <svg class="stage-svg" viewBox="0 0 420 112" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Test growth curve from 21 to 139 automated tests">
+              <defs>
+                <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#34D399" stop-opacity="0.32" />
+                  <stop offset="100%" stop-color="#34D399" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="24" x2="420" y2="24" stroke="rgba(255,255,255,0.06)" />
+              <line x1="0" y1="58" x2="420" y2="58" stroke="rgba(255,255,255,0.06)" />
+              <line x1="0" y1="92" x2="420" y2="92" stroke="rgba(255,255,255,0.06)" />
+              <path d="M10 92 C70 90, 110 74, 165 62 C225 49, 285 40, 340 24 C375 14, 395 12, 410 10 L410 104 L10 104 Z" fill="url(#curveFill)" />
+              <path d="M10 92 C70 90, 110 74, 165 62 C225 49, 285 40, 340 24 C375 14, 395 12, 410 10" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="10" cy="92" r="3.5" fill="#9AA7BC" />
+              <circle cx="165" cy="62" r="3.5" fill="#34D399" />
+              <circle cx="340" cy="24" r="3.5" fill="#34D399" />
+              <circle cx="410" cy="10" r="4.5" fill="#34D399" />
+            </svg>
+          </div>
+
+          <div class="stage-metrics">
+            <div class="metric-cell">
+              <div class="metric-num signal">93.2%</div>
+              <div class="metric-desc">YOLOv8n precision &amp; recall across 4,128 leaf images</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-num amber">93%</div>
+              <div class="metric-desc">NTI 540-hour Digital Twin Engineering distinction</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-num">-60%</div>
+              <div class="metric-desc">Weekly reporting time cut at Modern Hygienic (MHI)</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-num">200+</div>
+              <div class="metric-desc">Production SKU specs standardized across departments</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="hesn">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Flagship System — HESN (حِصْن)</h2>
+            <p>Offline-first enterprise desktop software architected and deployed live on automotive workshop floors at ASMC.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://omarkhalidmahmmoud.github.io/HESN-Releases/" target="_blank" rel="noopener">Open Release Portal</a>
+        </div>
+
+        <div class="flagship-grid">
+          <div class="panel">
+            <h3>Full-cycle workshop digitization with zero cloud lock-in</h3>
+            <p class="panel-meta">ASMC — Ahmad Mercedes Service Center (2026 – Present)</p>
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Financial &amp; Shift Integrity:</strong> Multi-safe treasury reconciliation, Z-Report closing, atomic cascade deletions, and automated weekly HR payroll settlement.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Operations &amp; Mobile LAN Forms:</strong> Vehicle intake/inspection cards, spare parts inventory depletion, customer Anti-IDOR portal, and tablet LAN/Cloudflare workflows.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Enterprise Security &amp; Auto-Updates:</strong> Hardware-bound HMAC licensing (`HESN-`), 7-day trial, signed remote sync, and SHA-256 verified silent updates.</span>
+              </li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Python 3.12</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">SQLite WAL</span>
+              <span class="tag">PyWebView</span>
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">PyInstaller</span>
+            </div>
+          </div>
+
+          <div class="panel panel-dark">
+            <h3>Production Architecture</h3>
+            <p class="panel-meta">Self-contained Windows executable (HESN.exe)</p>
+            <div class="spec-list">
+              <div class="spec-row"><span>Current Release</span><span>v2.2.1</span></div>
+              <div class="spec-row"><span>Automated Tests</span><span>139 / 139 Passing</span></div>
+              <div class="spec-row"><span>Storage Engine</span><span>SQLite WAL + Dual Snapshots</span></div>
+              <div class="spec-row"><span>Localization</span><span>Bilingual Arabic / English</span></div>
+              <div class="spec-row"><span>Offline Operation</span><span>100% Autonomous</span></div>
+            </div>
+            <a class="btn btn-accent" style="width: 100%;" href="https://omarkhalidmahmmoud.github.io/HESN-Releases/" target="_blank" rel="noopener">Download HESN.exe for Windows</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Additional Technical Projects</h2>
+          <p>Applied machine learning, computer vision edge deployment, and academic database architecture.</p>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <div class="project-date">2025</div>
+            <h3>Tomato Leaf Disease Detection — Computer Vision</h3>
+            <p class="panel-meta">Personal Research Project</p>
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Trained a YOLOv8n object detection model on <strong>4,128 annotated agricultural images</strong>, reaching <strong>93.2% precision and recall</strong>.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Built a FastAPI inference microservice and exported weights to <strong>ONNX Runtime</strong> for fast edge deployment.</span>
+              </li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">PyTorch</span><span class="tag">YOLOv8n</span><span class="tag">OpenCV</span><span class="tag">ONNX</span><span class="tag">FastAPI</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="project-date">2023</div>
+            <h3>Credit Hour Academic Management System</h3>
+            <p class="panel-meta">Graduation Project — Grade: Excellent</p>
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Architected an academic portal automating course registration, prerequisite validation trees, and credit hour compliance.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Automated term and cumulative GPA calculation across multi-semester student records.</span>
+              </li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Systems Analysis</span><span class="tag">Relational DB</span><span class="tag">Validation Trees</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <h2>Professional &amp; Operational Experience</h2>
+          <p>Hands-on execution across automotive diagnostics, manufacturing coordination, retail administration, and control-room operations.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="exp-row">
+            <div class="exp-left">
+              <div class="exp-period">Aug 2026 – Present</div>
+              <div class="exp-org">ASMC – Ahmad Mercedes Service Center</div>
+              <div class="exp-loc">Cairo, Egypt</div>
+            </div>
+            <div class="exp-right">
+              <h3>General Accountant, Diagnostics Engineer &amp; Operations Admin</h3>
+              <ul>
+                <li><strong>Engineered &amp; Deployed HESN:</strong> Built and deployed the live offline-first desktop system managing intake, repair orders, inventory, invoicing, payroll, and multi-safe accounting.</li>
+                <li><strong>Electronic Diagnostics &amp; Finance:</strong> Perform OBD-II ECU/sensor/CAN-bus diagnostics alongside daily revenue reconciliation and spare parts procurement.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-row">
+            <div class="exp-left">
+              <div class="exp-period">Sep 2024 – Present</div>
+              <div class="exp-org">Cottonil – El Qanater El Khairia</div>
+              <div class="exp-loc">Qalyubia, Egypt</div>
+            </div>
+            <div class="exp-right">
+              <h3>Branch Manager – Retail Operations</h3>
+              <ul>
+                <li>Lead daily retail operations including sales, cashiering, staff scheduling, purchasing, and full accounting reconciliation.</li>
+                <li>Direct local warehouse storage and periodic cycle counts across high-volume textile product lines to maintain near-zero inventory discrepancies.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-row">
+            <div class="exp-left">
+              <div class="exp-period">Mar 2025 – Oct 2025</div>
+              <div class="exp-org">Modern Hygienic International (MHI)</div>
+              <div class="exp-loc">Egypt</div>
+            </div>
+            <div class="exp-right">
+              <h3>Production Coordinator</h3>
+              <ul>
+                <li>Developed automated Python and Excel reporting routines analyzing production output and raw-material consumption, <strong>cutting weekly report time by 60%</strong>.</li>
+                <li>Established safety-stock alerts to prevent line idle time and contributed to standardizing <strong>200+ SKU designs</strong> and specification cards.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-row">
+            <div class="exp-left">
+              <div class="exp-period">Jan 2024 – Mar 2025</div>
+              <div class="exp-org">General Traffic Department – Cairo Operations Room</div>
+              <div class="exp-loc">Cairo, Egypt</div>
+            </div>
+            <div class="exp-right">
+              <h3>Operations Specialist &amp; System Monitor (Military Service)</h3>
+              <ul>
+                <li>Reviewed and processed high-volume automated traffic camera violations on the centralized platform with strict accuracy and turnaround standards.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-row">
+            <div class="exp-left">
+              <div class="exp-period">2019 – 2023</div>
+              <div class="exp-org">Automotive Spare Parts &amp; Retail Operations</div>
+              <div class="exp-loc">Cairo, Egypt</div>
+            </div>
+            <div class="exp-right">
+              <h3>Warehouse Supervisor (2022–2023) &amp; Shop Supervisor (2019–2021)</h3>
+              <ul>
+                <li>Cataloged mechanical and electrical car spare parts with bin-location indexing to accelerate order picking; managed daily retail closing and supplier restocking.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-head">
+          <h2>Core Competencies, Education &amp; Certifications</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel">
+            <h3>Software &amp; Data</h3>
+            <p class="panel-meta">Engineering &amp; Analytics</p>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span>
+              <span class="tag">JavaScript</span><span class="tag">HTML5/CSS3</span><span class="tag">Git</span>
+              <span class="tag">Pandas / NumPy</span><span class="tag">Power BI</span><span class="tag">Excel Power Query</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Automation &amp; AI</h3>
+            <p class="panel-meta">Industry 4.0 &amp; Vision</p>
+            <div class="tag-row">
+              <span class="tag">Siemens TIA Portal</span><span class="tag">OPC UA</span><span class="tag">Digital Twin</span>
+              <span class="tag">Unity</span><span class="tag">NVIDIA Omniverse</span><span class="tag">PyTorch</span>
+              <span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">ONNX</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Education &amp; Credentials</h3>
+            <p class="panel-meta">Verified Qualifications</p>
+            <ul class="feature-list" style="margin-bottom: 0;">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>B.Sc. Computer Science (2019–2023)</strong> — Higher Institute for CS (Project: Excellent)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>NTI Digital Twin (93%, 540 hrs)</strong> &amp; <strong>Siemens Imhotep Automation</strong></span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Lean Six Sigma Green Belt (IQF)</strong> &amp; <strong>AMIT ML/AI Diploma</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Omar Khaled Mahmoud — Cairo, Egypt (Arabic Native, English Very Good)</span>
+      <div class="footer-links">
+        <a href="mailto:omarkhalidmahmmoud@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/omar-khalid-mahmmoud" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/omarkhalidmahmmoud" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://omarkhalidmahmmoud.github.io/HESN-Releases/" target="_blank" rel="noopener">HESN Releases</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
