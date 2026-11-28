@@ -105,6 +105,8 @@ footer{direction:ltr;padding:30px 0 50px;text-align:center;color:var(--mu);font-
 .term .bar{align-items:center}
 .chips span{transition:.2s;cursor:default}
 .chips span:hover{transform:translateY(-2px);border-color:var(--ac);background:var(--glow)}
+.hshots{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:14px}
+.hshots img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:10px;border:1px solid var(--bd);background:var(--bg2)}
 #top-btn{position:fixed;inset-inline-end:18px;bottom:18px;z-index:20;width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--ac);font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 #top-btn.show{opacity:1;pointer-events:auto}
 #lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.88);display:none;place-items:center;padding:20px}
@@ -297,7 +299,18 @@ body{padding-bottom:70px}
 <div class="card flag pc" data-c="sw ai">
 <div><span class="meta">ASMC · 2026 – Present</span><h3>HESN (حِصْن)</h3><p data-i="hesn"></p>
 <ul><li data-i="h1"></li><li data-i="h2"></li><li data-i="h3"></li></ul>
-<div class="chips"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>PyWebView</span><span>PyInstaller</span></div></div>
+<div class="chips"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>PyWebView</span><span>PyInstaller</span></div>
+<div class="hshots">
+<img src="media/hesn/01_login_portal.webp" loading="lazy" width="1400" height="788" alt="HESN login portal screen" />
+<img src="media/hesn/02_jobcard_reception.webp" loading="lazy" width="1400" height="788" alt="HESN vehicle jobcard reception screen" />
+<img src="media/hesn/03_maintenance_invoice.webp" loading="lazy" width="1400" height="788" alt="HESN maintenance invoice screen" />
+<img src="media/hesn/04_treasury_multisafes.webp" loading="lazy" width="1400" height="788" alt="HESN treasury and multi-safes ledger" />
+<img src="media/hesn/05_shifts_zreport.webp" loading="lazy" width="1400" height="788" alt="HESN shifts Z-Report screen" />
+<img src="media/hesn/06_inventory_parts.webp" loading="lazy" width="1400" height="788" alt="HESN parts inventory management" />
+<img src="media/hesn/07_hr_payroll.webp" loading="lazy" width="1400" height="788" alt="HESN HR and payroll screen" />
+<img src="media/hesn/08_customer_portal.webp" loading="lazy" width="1400" height="788" alt="HESN isolated customer portal" />
+</div>
+<div class="cta" style="margin-top:14px"><a class="btn p" data-i="dl_hesn" href="https://github.com/omarkhalidmahmmoud/HESN-Releases/releases/latest" target="_blank" rel="noopener"></a></div></div>
 <div class="spec"><div><span data-i="sp1"></span><span>HESN.exe</span></div><div><span>Stack</span><span>FastAPI + SQLite</span></div><div><span data-i="sp2"></span><span>85 passing</span></div><div><span data-i="sp3"></span><span>SQLite</span></div><div><span data-i="sp5"></span><span>offline</span></div></div>
 </div>
 <div class="card pc" data-c="ai"><span class="meta">2025</span><h3 data-i="p1t"></h3><p data-i="p1d"></p>
@@ -358,6 +371,7 @@ const T={en:{n_serv:"Services",d_nav:"Menu",d_off:"What I can build",h_serv:"Wha
 lead:"I build AI models and the software around them: computer vision trained and exported to ONNX, FastAPI services, and an offline-first Windows app used daily in a real workshop. Python, SQL, REST APIs. Cairo, Egypt.",cv:"Download CV",hire:"Get in touch",
 s1:"Tomato leaf detection, 4,128 images, exported to ONNX",s2:"Automated tests in HESN, all passing",s3:"NTI 540-hour Digital Twin program, distinction",s4:"Weekly report time at MHI",
 hesn:"Offline-first Windows desktop app used daily at an automotive service center. Runs as a standalone executable with no server or internet.",
+dl_hesn:"Download HESN v2.3.0",
 h1:"Vehicle check-in and repair orders.",h2:"Parts inventory, invoicing and technician commissions.",h3:"Cash management, packaged with PyInstaller.",
 sp1:"Package",sp2:"Tests",sp3:"Storage",sp4:"Language",sp5:"Operation",
 p1t:"Tomato Leaf Disease Detection",p1d:"Computer vision, personal research project.",p1a:"Trained YOLOv8n on 4,128 annotated images and exported it to ONNX.",p1b:"Built a FastAPI inference service around the ONNX model for easy deployment.",
@@ -372,6 +386,7 @@ ar:{n_serv:"الخدمات",d_nav:"القائمة",d_off:"اللي أقدر أب
 lead:"بعمل نماذج ذكاء اصطناعي والبرمجيات اللي حواليها: رؤية حاسوبية متدربة ومصدّرة لـ ONNX، خدمات FastAPI، وتطبيق ويندوز بيشتغل أوفلاين وبيستخدموه يومياً في ورشة حقيقية. القاهرة، مصر.",cv:"حمّل السيرة الذاتية",hire:"تواصل معايا",
 s1:"كشف أمراض أوراق الطماطم، 4,128 صورة، تصدير ONNX",s2:"اختبار آلي في HESN",s3:"برنامج NTI للتوأم الرقمي 540 ساعة، بامتياز",s4:"تقليل وقت التقارير الأسبوعية في MHI",
 hesn:"برنامج ويندوز مكتبي بيشتغل أوفلاين وبيستخدموه يومياً في مركز خدمة سيارات. ملف تنفيذي مستقل من غير سيرفر أو إنترنت.",
+dl_hesn:"تحميل حِصْن v2.3.0",
 h1:"استلام السيارات وأوامر الإصلاح.",h2:"مخزون قطع الغيار، الفواتير، وعمولات الفنيين.",h3:"إدارة النقدية، ومتغلّف بـ PyInstaller.",
 sp1:"الحزمة",sp2:"الاختبارات",sp3:"التخزين",sp4:"اللغة",sp5:"التشغيل",
 p1t:"كشف أمراض أوراق الطماطم",p1d:"رؤية حاسوبية، مشروع بحثي شخصي.",p1a:"دربت YOLOv8n على 4,128 صورة مُعلّمة وصدّرته لـ ONNX.",p1b:"بنيت خدمة FastAPI حوالين النموذج لسهولة النشر.",
